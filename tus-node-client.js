@@ -24,11 +24,11 @@ fs.stat(uploadFilePath, function(err, stat) {
 
         var fileSize = stat.size;
         console.log(fileSize);
-        var fileMime=mime.lookup(uploadFilePath);
+        var fileMime = mime.lookup(uploadFilePath);
         console.log(fileMime);
-        var fileExt=path.extname(uploadFilePath);
+        var fileExt = path.extname(uploadFilePath);
         console.log(fileExt);
-        
+
         var offset = 0;
 
         //temp
@@ -50,41 +50,43 @@ fs.stat(uploadFilePath, function(err, stat) {
 
                 var location = response.headers.location;
                 console.log(location);
-                
+
                 async.whilst(
-				    function () { return offset < fileSize; },
-				    function (callback) {
-				        
-				        setTimeout(function() {
-				        
-					        var options_head = {
-								url: location,
-								method: 'HEAD',
-							};
-	
-							req = request(options_head);
-							req.once('response', function(res) {
-								if (res.statusCode==200) {
-									offset=res.headers.offset;
-									if (offset) {
-										console.log("offset:"+res.headers.offset);
-									}
-									callback();
-								} else {
-									//always there are an exit :-)d
-									offset=fileSize;
-									callback();
-								}
-							});
-							
-				    	}, 1000);
-				    },
-				    function (err) {
-				        if (err) {
-				        	console.log(err);
-				        }
-				    }
-				);
+                    function() {
+                        return offset < fileSize;
+                    },
+                    function(callback) {
+
+                        setTimeout(function() {
+
+                            var options_head = {
+                                url: location,
+                                method: 'HEAD',
+                            };
+
+                            req = request(options_head);
+                            req.once('response', function(res) {
+                                if (res.statusCode == 200) {
+                                    offset = res.headers.offset;
+                                    if (offset) {
+                                        console.log("offset:" + res.headers.offset);
+                                    }
+                                    callback();
+                                } else {
+                                    //always there are an exit :-)d
+                                    offset = fileSize;
+                                    callback();
+                                }
+                            });
+
+                        }, 1000);
+                    },
+                    function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    }
+                );
 
                 //here we go!
 
