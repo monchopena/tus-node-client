@@ -1,19 +1,24 @@
 tus-node-client
 ===============
 
-NodeJS client for the tus (http://tus.io) protocol.
+[TUS Protocol 0.2.1](http://www.tus.io/protocols/resumable-upload.html) Node Client Implementation
 
-First:
-
-<pre>
+## Installation
+```
 npm install
-</pre>
+```
 
-Sample:
-
-<pre>
+## Example
+```
 ./tus-node-client.js macaca.jpg http://localhost:1080/files/
-</pre>
+```
+
+## License
+
+[The MIT License (MIT)](https://raw.githubusercontent.com/monchopena/tus-node-client/master/LICENSE).
+
+
+## Test with a server
 
 If you need a Tus Node Server you can test Brewtus (https://github.com/vayam/brewtus).
 
