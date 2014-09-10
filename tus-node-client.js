@@ -10,13 +10,12 @@ var mime = require('mime');
 var args = process.argv;
 
 if (args.length < 4) {
-    console.log("Usage:", path.basename(args[1]), "file http://localhost:1080/files/");
+    console.log("Usage:", path.basename(args[1]), "file http://localhost:9008/files/");
     process.exit(1);
 }
 
 var uploadFilePath = args[2];
 var uploadURL = args[3];
-var chunkSize = 1024;
 
 fs.stat(uploadFilePath, function(err, stat) {
 
