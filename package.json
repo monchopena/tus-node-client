@@ -1,0 +1,24 @@
+{  
+   "name":"tus-node-client",
+   "version":"0.0.4",
+   "description": "NodeJS client for the tus (http://tus.io) protocol.",
+   "private":false,
+   "repository":{  
+      "type":"git",
+      "url":"git@github.com:monchopena/tus-node-client.git"
+   },
+   "keywords":[  
+      "tus",
+      "upload",
+      "file",
+      "upload",
+      "resumable"
+   ],
+   "author":"Moncho Pena, Ourense 2014",
+   "license":"MIT",
+   "dependencies":{  
+      "mime":"*",
+      "request":"*",
+      "async":"*"
+   }
+}
