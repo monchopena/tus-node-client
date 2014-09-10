@@ -31,8 +31,6 @@ fs.stat(uploadFilePath, function(err, stat) {
 
         var offset = 0;
 
-        //temp
-
         var options = {
             url: uploadURL,
             method: 'POST',
@@ -42,7 +40,6 @@ fs.stat(uploadFilePath, function(err, stat) {
                 'Content-Extension': fileExt
             }
         };
-
 
         request(options, function(error, response, body) {
 
@@ -79,7 +76,7 @@ fs.stat(uploadFilePath, function(err, stat) {
                                 }
                             });
 
-                        }, 1000);
+                        }, 1000);  //every second
                     },
                     function(err) {
                         if (err) {
